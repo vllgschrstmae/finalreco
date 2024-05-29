@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bodyheadfoot.css">
+    <script type="module" src="main.js"></script>
+    <title>RecoSelect | Results</title>
+    <style>
+        .header {
+            margin-left: 70px;
+            margin-right: 70px;
+            border-radius: 10px;
+            background-color: #695dc3;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        .main-content {
+            position: relative;
+        }
+
+        .filterbar {
+            flex: 1;
+        }
+
+        .header2 h3 {
+            margin-left: 20px;
+            background-color: transparent;
+            color: black;
+            text-align: left;
+            padding: 20px;
+
+        }
+
+        .filters {
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+            background-color: #695dc3;
+            padding: 20px;
+            color: black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .filter-section {
+            margin-right: 20px;
+        }
+
+        .stars,
+        .location,
+        .price-range {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .stars label,
+        .location select,
+        .price-range input[type="number"] {
+            display: block;
+        }
+
+        .filter-button {
+            padding: 10px 20px;
+            background-color: #6859d4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            align-self: center;
+            position: relative;
+        }
+
+
+        .filter-button:hover {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="mynavsidebar" class="navsidebar">
+            <a href="home.html">
+                <div class="wrapper-logo">
+                    <img src="white_logo.png" alt="Logo">
+                </div>
+            </a>
+            <br>
+            <ul>
+                <li>
+                    <a href="About.html" class="active">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.html">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" id="logoutButton">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <div class="top_navbar">
+                <div class="topnav" style="margin-right: auto;">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Search Results</h1>
+            <div id="resultsContainer">
+                <span id="searchQuery"></span>
+                <div id="searchResults">
+                    <h5>Search results will be displayed here: </h5>
+                </div>
+            </div>
+        </div>
+    <button type="button" class="filter-button">Apply Filter</button>
+    </div>
+
+    <div id="myfilterbar" class="filterbar" style="display: none;">
+        <div class="header2">
+            <h3>Filters</h3>
+        </div>
+        <div class="filters">
+            <br>
+            <div class="filter-section">
+                <h4>Price Range</h4>
+                <br>
+                <input type="number" name="min_price" class="price-input" placeholder="₱ Min">
+                <input type="number" name="max_price" class="price-input" placeholder="₱ Max">
+                <br>
+                <div>
+                    <br>
+                    <label><input type="radio" name="price_range" value="0-200"> 0-200</label>
+                    <br>
+                    <label><input type="radio" name="price_range" value="201-400"> 201-400</label>
+                    <br>
+                    <label><input type="radio" name="price_range" value="401-600"> 401-600</label>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <div class="filter-section">
+                <h4>Location</h4>
+                <br>
+                <select name="location" class="filter-box">
+                    <option value="" disabled selected>Location</option>
+                    <option value="domestic">Domestic</option>
+                    <option value="overseas">Overseas</option>
+                    <option value="luzon">Luzon</option>
+                    <option value="visayas">Visayas</option>
+                    <option value="mindanao">Mindanao</option>
+                </select>
+            </div>
+            <br>
+            <div class="filter-section">
+                <h4>Star Ratings</h4>
+                <br>
+                <div class="stars">
+                    <label><input type="radio" name="star-row" value="1 Star"> ★☆☆☆☆ </label>
+                    <label><input type="radio" name="star-row" value="2 Star"> ★★☆☆☆ </label>
+                    <label><input type="radio" name="star-row" value="3 Star"> ★★★☆☆ </label>
+                    <label><input type="radio" name="star-row" value="4 Star"> ★★★★☆ </label>
+                    <label><input type="radio" name="star-row" value="5 Star"> ★★★★★ </label>
+                </div>
+                <br>
+            </div>
+            <br>
+        </div>
+    </div>
+
+
+    <section class="all-rights">
+        <div class="div-block">
+            <blockquote class="quote">
+                Explore RecoSelect for a smarter, personalized shopping experience.
+                Dive deeper into how we make your shopping seamless – all rights
+                reserved, RecoSelect © 2024.
+            </blockquote>
+        </div>
+    </section>
+<script>
+    var topnav = document.querySelector(".topnav");
+    if (topnav) {
+        topnav.addEventListener("click", function () {
+            document.querySelector("body").classList.toggle("active");
+        });
+    }
+    var topnav.addEventListener("DOMContentLoaded", async function () {
+    // Retain the code for handling the top navigation
+    const topNav = document.querySelector(".top_navbar .topnav");
+    if (topNav) {
+        topNav.addEventListener("click", function () {
+            document.querySelector("body").classList.toggle("active");
+        });
+    }
+</script>
+
+</body>
+
+</html>

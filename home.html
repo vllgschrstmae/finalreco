@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bodyheadfoot.css">
+  <script type="module" src="main.js"></script>
+  <title>RecoSelect | Home</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="navsidebar">
+      <a href="home.html">
+        <div class="wrapper-logo">
+          <img src="white_logo.png" alt="Logo">
+        </div>
+      </a>
+      <br>
+      <ul>
+        <li>
+          <a href="About.html" class="active">
+            <span class="icon"><i class="fas fa-home"></i></span>
+            <span class="item">About</span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html">
+            <span class="icon"><i class="fas fa-user-friends"></i></span>
+            <span class="item">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="index.html" id="logoutButton">
+            <span class="icon"><i class="fas fa-desktop"></i></span>
+            <span class="item">Log Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="section">
+      <div class="top_navbar">
+        <div class="topnav">
+          <a href="#">
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+        <div class="search-container">
+          <form action="results.html" method="GET">
+            <div class="search-box">
+              <select id="shopSelect" class="shop-select" required>
+                <option value="" disabled selected>Select Shop</option>
+                <option value="shopee">Shopee</option>
+                <option value="lazada">Lazada</option>
+                <option value="temu">Temu</option>
+              </select>
+              <input type="text" id="searchInput" name="query" class="search-input" placeholder="Search the store..."
+                required>
+              <button type="submit" class="search-button">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <section class="main_header">
+      <div class="body-container">
+        <div class="w-layout-grid _2-col-grid">
+          <div class="content-wrapper">
+            <h1 class="heading">Discover And Shop In RecoSelect</h1>
+            <p class="short-p">Welcome to RecoSelect,
+              where we streamline your online shopping with personalized store recommendations.</p>
+          </div>
+          <div class="image-wrapper">
+            <img src="index.png" alt="RecoSelect" class="recoshop_logo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main_body">
+      <div class="subheader">Reco Product</div>
+      <div class="Reco-Product">
+        <div class="w-layout-grid grid">
+          <div class="Reco-Product-block">
+            <img src="StylishBackpack.png" />
+            <div class="Reco-Product-txt">Perfect for students and professionals alike.</div>
+            <a href="https://shopee.ph/Mia-Fashion-A13-Japanese-and-Korean-style-solid-color-forest-girl-backpack-series.-i.373955363.10948069425?sp_atk=af05afcb-53af-447c-91f3-01c742c82b8b&xptdk=af05afcb-53af-447c-91f3-01c742c82b8b"
+              target="_blank" class="Reco-Product-link">Stylish Backpack</a>
+          </div>
+
+          <div class="Reco-Product-block">
+            <img src="CompactPowerBank.png" />
+            <div class="Reco-Product-txt">Keep your devices charged on the go.</div>
+            <a href="https://www.lazada.com.ph/products/wireless-powerbank-50000mah-magsafe-powerbank-original-fast-charging-power-bank-20000mah10000mah-21a-pd-20w-for-iphone-android-i4343890468-s24448764527.html?spm=a2o4l.searchlist.list.15"
+              target="_blank" class="Reco-Product-link">Compact Power Bank</a>
+          </div>
+
+          <div class="Reco-Product-block">
+            <img src="NoiseCancellingHeadphones.png" />
+            <div class="Reco-Product-txt">Immerse in your study sessions without distractions.</div>
+            <a href="https://www.temu.com/ph/active-noise-cancelling-headphones-wireless-over-ear-headset-20h-playtime-hi-res-audio-deep-bass-for-travel-home-office-g-601099526303239.html?_oak_mp_inf=EIfc9Z2m1ogBGiBmNjI3NjJmZTQ1MWQ0ZGI4YTY0NDAxNzBkYWI1NjY5ZiC4n5jk9jE%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2FFancyalgo%2FVirtualModelMatting%2Fbe86014fe1bf1029de175d801dec1499.jpg&spec_gallery_id=2038310211&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=MTY0MjAw&_oak_gallery_order=2051074224%2C523980634%2C1310475294%2C276603506%2C143800294&search_key=noise%20cancelling%20headphones&refer_page_el_sn=200049&_x_vst_scene=adg&_x_ads_sub_channel=shopping&_x_ns_prz_type=-1&_x_gmc_catalog=1219850&_x_ns_sku_id=17592299240655&_x_ns_catalog_id=1219850&_x_ads_channel=bing&_x_gmc_account=3531514&_x_ads_creative_id=82257589801254&_x_ns_device=c&_x_ads_account=176518866&_x_ns_match_type=e&_x_ns_msclkid=1ccc7d6870781b7cb0401b7717b01738&_x_ads_set=520556954&_x_ns_source=o&_x_ads_id=1316117785008435&_x_sessn_id=r7fmc72ye1&refer_page_name=search_result&refer_page_id=10009_1715512676255_xk972torrc"
+              target="_blank" class="Reco-Product-link">Noise Cancelling Headphones</a>
+          </div>
+          <div class="Reco-Product-block">
+            <img src="ErgonomicWirelessMouse.png" />
+            <div class="Reco-Product-txt">Enhance your productivity with comfort.<br />
+            </div>
+            <a href="https://www.aliexpress.com/item/1005005296925878.html?spm=a2g0o.productlist.main.7.ae055c4cdLZHqT&algo_pvid=23731e92-fc95-47b6-84a7-fee4d65825d6&algo_exp_id=23731e92-fc95-47b6-84a7-fee4d65825d6-3&pdp_npi=4%40dis%21PHP%21103.91%2149.59%21%21%211.76%210.84%21%40210324c817154916524695860e1a12%2112000032535116627%21sea%21PH%210%21AB&curPageLogUid=RVgYRwPBVHNJ&utparam-url=scene%3Asearch%7Cquery_from%3A"
+              target="_blank" class="Reco-Product-link">Ergonomic Wireless Mouse</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="all-rights">
+    <div class="div-block">
+      <blockquote class="quote">
+        Explore RecoSelect for a smarter, personalized shopping experience.
+        Dive deeper into how we make your shopping seamless – all rights
+        reserved, RecoSelect © 2024.
+      </blockquote>
+    </div>
+  </section>
+  <script>
+      var topnav = document.querySelector(".topnav");
+      if (topnav) {
+          topnav.addEventListener("click", function () {
+              document.querySelector("body").classList.toggle("active");
+          });
+      }
+  </script>
+</body>
+
+</html>

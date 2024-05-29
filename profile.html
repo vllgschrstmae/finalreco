@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="bodyheadfoot.css">
+    <title>RecoSelect | Profile</title>
+    <style>
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .profile-header {
+            background-color: #695dc3;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .profile-container {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .profile-info h2 {
+            margin: 10px 0;
+            font-size: 24px;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .edit-button {
+            position: absolute;
+            top: 200px;
+            right: 50px;
+            background-color: #695dc3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-form {
+            display: none;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+
+        .edit-form input,
+        .edit-form textarea {
+            width: calc(80% - 20px);
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+
+        .save-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="navsidebar">
+            <a href="home.html">
+              <div class="wrapper-logo">
+                <img src="white_logo.png" alt="Logo">
+              </div>
+            </a>
+            <br>
+            <ul>
+                <li>
+                    <a href="About.html" class="active">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.html">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" id="logoutButton">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="top_navbar">
+                <div class="topnav" style="margin-right: auto;">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="main-content">
+        <div class="profile-header">
+            <h1>Your Profile</h1>
+        </div>
+        <div class="profile-container">
+            <button class="edit-button" id="editButton">Edit</button>
+            <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic" id="profilePic">
+            <div class="profile-info">
+                <h2 id="userName"></h2>
+                <p id="userLocation"></p>
+                <p id="userBirthday"></p>
+            </div>
+            <div class="edit-form" id="editForm">
+                <input type="text" id="editName" placeholder="Name: ">
+                <input type="text" id="editLocation" placeholder="Location: ">
+                <input type="text" id="editBirthday" placeholder="Birthday (month-date-year): ">
+                <input type="file" id="uploadInput" class="upload-input" accept="image/*">
+                <label for="uploadInput" class="upload-label">Upload Picture</label>
+                <button class="save-button" id="saveButton">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const userData = {
+            name: "",
+            location: "",
+            birthday: "",
+            profilePic: "profile-pic.jpg"
+        };
+
+        function populateProfile(user) {
+            document.getElementById('userName').innerText = user.name || "Name :";
+            document.getElementById('userLocation').innerText = user.location || "Location :";
+            document.getElementById('userBirthday').innerText = user.birthday || "Birthday :";
+            document.getElementById('profilePic').src = user.profilePic;
+        }
+
+        function showEditForm(user) {
+            document.getElementById('editName').value = user.name;
+            document.getElementById('editLocation').value = user.location;
+            document.getElementById('editBirthday').value = user.birthday;
+        }
+
+        document.getElementById('editButton').addEventListener('click', function () {
+            const editForm = document.getElementById('editForm');
+            editForm.style.display = (editForm.style.display === "none" || editForm.style.display === "") ? "block" : "none";
+            if (editForm.style.display === "block") {
+                showEditForm(userData);
+            }
+        });
+
+        document.getElementById('saveButton').addEventListener('click', function () {
+            userData.name = document.getElementById('editName').value;
+            userData.location = document.getElementById('editLocation').value;
+            userData.birthday = document.getElementById('editBirthday').value;
+            populateProfile(userData);
+            document.getElementById('editForm').style.display = "none";
+        });
+
+        document.getElementById('uploadInput').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                    userData.profilePic = reader.result;
+                    document.getElementById('profilePic').src = reader.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        populateProfile(userData);
+    </script>
+</body>
+
+</html>
