@@ -1,13 +1,5 @@
 // script for home.html
-document.addEventListener("DOMContentLoaded", function () {
-    var topnav = document.querySelector(".topnav");
-    if (topnav) {
-        topnav.addEventListener("click", function () {
-            document.querySelector("body").classList.toggle("active");
-        });
-    }
-
-    var searchForm = document.getElementById("searchForm");
+var searchForm = document.getElementById("searchForm");
     if (searchForm) {
         searchForm.addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent default form submission
